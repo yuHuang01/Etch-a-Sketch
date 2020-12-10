@@ -21,14 +21,6 @@ function createBoard(gridNum){
 
 createBoard(gridNum)
 
-function eventTest(e){
-    console.log(e)
-}
-
-function ranNum(){
-     randomNum = Math.floor(Math.random * 255);
-}
-console.log(ranNum())
 function Paint(e){
     let targetedDiv = e.target;
     switch(choice){
@@ -36,9 +28,7 @@ function Paint(e){
             targetedDiv.style.backgroundColor = "black";
             break;
         case "rainbow":
-            ranNum()
-            console.log(randomNum);
-            e.target.style.backgroundColor = `rgb(${20}, ${30}, ${40})`;
+            e.target.style.backgroundColor = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`
             break;
         default:
             targetedDiv.style.backgroundColor = "white";
