@@ -1,9 +1,8 @@
 let gridNum = 16;
 const board = document.getElementById("board");
-let paintColor = "white";
 let choice = "black"
-let randomColor = "blue"
-let randomNum = "1";
+let noPenCounter = 0;
+let storedColor = "";
 
 //Board
 function createBoard(gridNum){
@@ -12,8 +11,8 @@ function createBoard(gridNum){
     board.style.gridTemplateRows = `repeat(${gridNum}, 1fr)`;
     for(i = 1; i <= templateArea; i++){
         let pixel = document.createElement("div");
-        pixel.addEventListener("mouseenter", Paint)
-        pixel.style.backgroundColor = "white";
+        pixel.addEventListener("click", noPen);
+        pixel.addEventListener("mouseenter", Paint);
         pixel.className = "pixels";
         board.appendChild(pixel);
     }
@@ -25,16 +24,41 @@ function Paint(e){
     let targetedDiv = e.target;
     switch(choice){
         case "black":
-            targetedDiv.style.backgroundColor = "black";
+            choiceColor = "black"
+            targetedDiv.style.backgroundColor = choiceColor;
             break;
         case "rainbow":
-            e.target.style.backgroundColor = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`
+            choiceColor = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
+            e.target.style.backgroundColor = choiceColor;
             break;
         default:
-            targetedDiv.style.backgroundColor = "white";
+            choiceColor = "white"
+            targetedDiv.style.backgroundColor = choiceColor;
             break;
     }
 }
+
+
+
+function noPen(){
+    let gridPixels = document.getElementsByClassName("pixels");
+    noPenCounter += 1;
+    if(noPenCounter % 2 === 1){
+        storedColor = choice;
+        for(i = 0; i < gridPixels.length; i++){
+            gridPixels[i].removeEventListener("mouseenter", Paint)
+        }
+    }
+    else {
+        choice = storedColor;
+        storedColor = "nothing";
+        for(i = 0; i < gridPixels.length; i++){
+            gridPixels[i].addEventListener("mouseenter", Paint);
+    };
+}
+}
+
+
 
 //Black button
 const blackBtn = document.getElementById("blackBtn")

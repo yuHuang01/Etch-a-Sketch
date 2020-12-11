@@ -36,6 +36,7 @@ body {
     display: grid;
     border: solid;
     border-width: 2px;
+    background-color: white;
 }
 
 .btns {
