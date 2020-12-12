@@ -24,16 +24,13 @@ function Paint(e){
     let targetedDiv = e.target;
     switch(choice){
         case "black":
-            choiceColor = "black"
-            targetedDiv.style.backgroundColor = choiceColor;
+            targetedDiv.style.backgroundColor = "black";
             break;
         case "rainbow":
-            choiceColor = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
-            e.target.style.backgroundColor = choiceColor;
+            e.target.style.backgroundColor = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
             break;
         default:
-            choiceColor = "white"
-            targetedDiv.style.backgroundColor = choiceColor;
+            targetedDiv.style.backgroundColor = "white";
             break;
     }
 }
@@ -65,7 +62,8 @@ const blackBtn = document.getElementById("blackBtn")
 blackBtn.addEventListener('click', BlackClicked)
 
 function BlackClicked(){
-    choice = "black"
+    storedColor = "black";
+    choice = "black";
 }
 
 
@@ -74,7 +72,8 @@ const rainbowBtn = document.getElementById("rainbowBtn")
 rainbowBtn.addEventListener("click", RainbowClicked)
 
 function RainbowClicked(){
-    choice = "rainbow"
+    storedColor = "rainbow";
+    choice = "rainbow";
 }
 
 
@@ -83,7 +82,8 @@ const eraseBtn = document.getElementById("eraseBtn")
 eraseBtn.addEventListener("click", EraseClicked)
 
 function EraseClicked(){
-    choice = "erase"
+    storedColor = "erase";
+    choice = "erase";
 }
 
 
