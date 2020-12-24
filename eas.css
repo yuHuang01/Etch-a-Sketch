@@ -16,7 +16,7 @@ body {
 }
 
 #container {
-    width: 800px;
+    width: 700px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,8 +31,8 @@ body {
     color: rgb(160, 163, 0);
 }
 #board {
-    width: 700px;
-    height: 700px;
+    width: 600px;
+    height: 600px;
     display: grid;
     border: solid;
     border-width: 2px;
@@ -40,11 +40,11 @@ body {
 }
 
 .btns {
-    padding: 10px 40px 10px 40px;
+    padding: 5px 10px 5px 10px;
     margin: 10px 15px 10px 15px;
     font-size: 15px;
     font-weight: bold;
-    width: 150px;
+    width: 120px;
     background-color: lightgray;
 }
 
@@ -55,4 +55,28 @@ body {
 }
 #choiceDiv h3{
     color: whitesmoke;
+}
+
+
+#footer{
+    background-color: rgb(41, 41, 46);
+    height: 35px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    border-top: solid;
+    border-width: 2px;
+}
+#madeBy{
+    color: white;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+#madeBy a {
+    margin-left: 3px;
+    text-decoration: none;
+    color: white;
+}
+#madeBy a:hover{
+    font-weight: bold;
 }
